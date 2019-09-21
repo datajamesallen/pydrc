@@ -26,7 +26,7 @@ module1 = Extension('_oofit',
 
 setup(
     name='pydrc',
-    version='0.1.0',
+    version='0.0.1',
     url='https://github.com/datajamesallen/pydrc',
     license='MIT',
     author='James Allen',
