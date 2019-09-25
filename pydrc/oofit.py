@@ -62,7 +62,7 @@ class _SwigNonDynamicMeta(type):
 
 
 
-def fit1(res, dose, n, lb, ub, ret_arr):
-    return _oofit.fit1(res, dose, n, lb, ub, ret_arr)
+def fit1(res, dose, lb, ub, ret_arr):
+    return _oofit.fit1(res, dose, lb, ub, ret_arr)
 
 
