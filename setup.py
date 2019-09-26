@@ -17,12 +17,12 @@ if platform.system == 'Linux':
 if platform.system == 'Darwin':
     libdir = 'vartools/oocytes/lib/macos'
 
-module1 = Extension('_oofit',
+module1 = Extension('_pydrc',
                     include_dirs = ['include'],
                     libraries = ['levmar','lapack','blas','m'],
                     library_dirs = ['lib/linux'],
                     extra_compile_args = ["-fPIC"],
-                    sources = ['pydrc/oofit.c', 'pydrc/oofit_wrap.c'])
+                    sources = ['pydrc/oofit.c','pydrc/pydrc.c'])
 
 setup(
     name='pydrc',

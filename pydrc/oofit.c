@@ -4,7 +4,6 @@
 #include <float.h>
 
 # include "levmar.h"
-# include "oofit.h"
 
 // This file accesses the levmar library (which is pre-compiled
 // and stored in the lib directory for each major operating system.
