@@ -3,14 +3,16 @@
 #include "oofit.h"
 
 // function
-static PyObject* test(PyObject* self, PyObject* args) {
+static PyObject* fit4pdrc(PyObject* self, PyObject* args) {
+	char * input;
+	double * res;
 	printf("test\n");
 	return Py_None;
 }
 
 // function Definition struct
 static PyMethodDef myMethods[] = {
-	{"test",test, METH_NOARGS, "Prints test"},
+	{"fitdrc",fitdrc, METH_NOARGS, "Prints test"},
 	{NULL,NULL,0,NULL}
 };
 

@@ -14,6 +14,7 @@
 //-----------//
 
 static void drc1(double *p, double *x, int m, int n, void *adata) {
+// double * p should be len 2
 // pass the dose array as a void pointer
 // convert the void pointer to a double pointer
 double * ptr = (double *) adata;
@@ -29,6 +30,8 @@ for (i=0; i<n; ++i) {
     }
 }
 static void drc2(double *p, double *x, int m, int n, void *adata) {
+// double * p should be len 3
+// bottom unconstrained method
 double *ptr = (double *) adata;
 register int i;
 for (i=0; i<n; ++i) {
@@ -38,15 +41,19 @@ for (i=0; i<n; ++i) {
     }
 }
 static void drc3(double *p, double *x, int m, int n, void *adata) {
+// double * p should be len 3
+// top unconstrained method
 double *ptr = (double *) adata;
 register int i;
-for (i=0; i<n; ++i) {
+for (i=0; i<n; ++i) {m.
     double d = *ptr;
     x[i] = p[2]/(1+(pow(10, (p[0]-d)*p[1])));
     ++ptr;
     }
 }
 static void drc4(double *p, double *x, int m, int n, void *adata) {
+// double * p should be len 4
+// standard 4 parameter Dose-Response Curve
 double *ptr = (double *) adata;
 register int i;
 for (i=0; i <n; ++i) {
