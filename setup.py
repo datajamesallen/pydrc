@@ -39,6 +39,7 @@ setup(
     platforms='any',
     install_requires=dependencies,
     ext_modules = [module1],
+    test_suite = 'tests',
     classifiers=[
         # As from http://pypi.python.org/pypi?%3Aaction=list_classifiers
         # 'Development Status :: 1 - Planning',
