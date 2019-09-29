@@ -13,15 +13,15 @@ res = pydrc.sample_res
 >> [0, 1.3, 10.2, 43.3, 75.1, 91.5, 100]
 
 pydrc.fit4pdrc(dose, res)
->>{
-	'c':-5.89...        # EC50
-	'h':-1.37...        # hillslope
-	'b':0.0             # bottom
-	't':98.97...        # top
-	'p':4.0             # number of parameters
-	'i':1000            # number of iterations
-	'dose':[-7.52...    # doses used to fit
-	'response:[0,1.3... # responses used to fit
+>> {
+	'c':-5.89...         # EC50
+	'h':-1.37...         # hillslope
+	'b':0.0              # bottom
+	't':98.97...         # top
+	'p':4.0              # number of parameters
+	'i':1000             # number of iterations
+	'dose':[-7.52...]    # doses used to fit
+	'response:[0,1.3...] # responses used to fit
 }
 ```
 
