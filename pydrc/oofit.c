@@ -45,7 +45,7 @@ static void drc3(double *p, double *x, int m, int n, void *adata) {
 // top unconstrained method
 double *ptr = (double *) adata;
 register int i;
-for (i=0; i<n; ++i) {m.
+for (i=0; i<n; ++i) {
     double d = *ptr;
     x[i] = p[2]/(1+(pow(10, (p[0]-d)*p[1])));
     ++ptr;
