@@ -7,20 +7,18 @@ import platform
 
 dependencies = []
 
-operating_system = platform.system()
+_levmar = Extension('_levmar',
+                    libraries = ['lapack','blas'],
+                    extra_compile_args = ["-fPIC"],
+                    sources = ['lib/levmar-2.6/lm.c', 'lib/levmar-2.6/Axb.c',
+                               'lib/levmar-2.6/misc.c', 'lib/levmar-2.6/lmlec.c',
+                               'lib/levmar-2.6/lmbc.c', 'lib/levmar-2.6/lmblec.c',
+                               'lib/levmar-2.6/lmbleic.c'])
 
-print(platform.system)
-libdir = ''
-
-if platform.system == 'Linux':
-    libdir = 'vartools/oocytes/lib/linux'
-if platform.system == 'Darwin':
-    libdir = 'vartools/oocytes/lib/macos'
-
-module1 = Extension('_pydrc',
+_pydrc = Extension('_pydrc',
                     include_dirs = ['include'],
                     libraries = ['levmar','lapack','blas','m'],
-                    library_dirs = ['lib/linux'],
+                    library_dirs = ['lib/levmar-2.6'],
                     extra_compile_args = ["-fPIC"],
                     sources = ['pydrc/oofit.c','pydrc/pydrc.c'])
 
@@ -38,7 +36,7 @@ setup(
     zip_safe=False,
     platforms='any',
     install_requires=dependencies,
-    ext_modules = [module1],
+    ext_modules = [_levmar, _pydrc],
     test_suite = 'tests',
     classifiers=[
         # As from http://pypi.python.org/pypi?%3Aaction=list_classifiers
