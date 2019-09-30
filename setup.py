@@ -3,7 +3,6 @@ Dose Response Curve fitting package for python
 """
 from setuptools import find_packages, setup
 from distutils.core import Extension
-import platform
 
 dependencies = []
 
@@ -36,7 +35,7 @@ setup(
     zip_safe=False,
     platforms='any',
     install_requires=dependencies,
-    ext_modules = [_levmar, _pydrc],
+    ext_modules = [_pydrc],
     test_suite = 'tests',
     classifiers=[
         # As from http://pypi.python.org/pypi?%3Aaction=list_classifiers

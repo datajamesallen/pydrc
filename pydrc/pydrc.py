@@ -11,3 +11,37 @@ def fit4pdrc(dose, response):
     ret["dose"] = dose
     ret["response"] = response
     return ret
+
+import matplotlib.pyplot as plot
+import numpy as np
+
+def frange(start, stop, step):
+    i = start
+    while (i < stop):
+        yield i
+        i += step
+
+def drcfunc4(x, t, b, c, h):
+    return((b+((t-b)/(1+10**((c-x)*h)))))
+
+def showfit(fit):
+    """
+    takes a the fit structure and plots the fit on a graph
+    """
+    mindose = min(fit["dose"])
+    maxdose = max(fit["dose"])
+    rangedose = abs(mindose - maxdose)
+    graphmin = mindose - (rangedose * 0.25)
+    graphmax = maxdose + (rangedose * 0.25)
+    fig, ax = plot.subplots()
+    x = np.linspace(graphmin, graphmax, 100)
+    c = fit["c"]
+    h = fit["h"]
+    t = fit["t"]
+    b = fit["b"]
+    y = eval('(b+((t-b)/(1+10**((c-x)*h))))')
+    ax.scatter(fit["dose"], fit["response"])
+    ax.plot(x, y)
+    plot.show()
+    return None
+    

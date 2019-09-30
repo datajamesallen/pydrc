@@ -23,7 +23,11 @@ pydrc.fit4pdrc(dose, res)
 	'dose':[-7.52...]     # doses used to fit
 	'response':[0,1.3...] # responses used to fit
 }
+ret = pydrc.fit4pdrc(dose, res)
+pydrc.showfit(ret)
+>>>
 ```
+![](example.png)
 
 uses the C library [LEVMAR](http://users.ics.forth.gr/~lourakis/levmar/) as
 a backend to compute the non linear regression problem. This is an inplementation of the [Levenberg-Marquardt algorithm](https://en.wikipedia.org/wiki/Levenberg%E2%80%93Marquardt_algorithm), which combines Guass-Newton and gradient descent for a more robust problem solver even with distant starting values.
