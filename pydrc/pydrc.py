@@ -1,12 +1,15 @@
 import _pydrc
+from math import log10
 
 sample_dose = [-7.52,-7,-6.52,-6,-5.52,-5,-4]
 sample_res = [0,1.3,10.2,43.3,75.1,91.5,100]
 
-def fit4pdrc(dose, response):
+def fit4pdrc(dose, response, power=False):
     """
     takes a list of doses and responses and produces dictionary of return values
     """
+    if type(power) is int:
+        dose = M_to_log(dose, power)
     ret = _pydrc.fit4pdrc(dose, response)
     ret["dose"] = dose
     ret["response"] = response
@@ -20,6 +23,18 @@ def frange(start, stop, step):
     while (i < stop):
         yield i
         i += step
+
+def M_to_log(doselist, power = -6):
+    """
+    converts Molar conc to log conc
+
+    default power is -6, meaning the doses are in uM
+    """
+    log_doselist = []
+    for item in doselist:
+        log_item = log10(item * (10 ** power))
+        log_doselist.append(log_item)
+    return log_doselist
 
 def drcfunc4(x, t, b, c, h):
     return((b+((t-b)/(1+10**((c-x)*h)))))
